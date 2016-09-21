@@ -1,8 +1,12 @@
 from . import *
 
 
+class WidgetStringItem(StringItem, StringIntItemInterface, StringFloatItemInterface):
+    pass
+
+
 class WidgetStringInterface(AttachAbility):
-    class StringItem(StringItem, StringIntItemInterface, StringFloatItemInterface):
+    class StringItem(WidgetStringItem):
         pass
 
     @property
