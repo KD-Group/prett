@@ -49,7 +49,7 @@ class WidgetStringListInterface(AttachAbility):
 
     @property
     def strings_item(self) -> StringsItem:
-        return self.create(type(self).StringsItem, args=(self,))
+        return self.create(type(self).StringsItem, args=(self, ))
 
     @property
     def string_list(self) -> StringListProperty:

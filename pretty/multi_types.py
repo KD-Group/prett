@@ -161,7 +161,7 @@ class StringIntProperty(IntProperty):
 class StringIntItemInterface(StringItemInterface):
     @property
     def int(self) -> StringIntProperty:
-        return self.create(StringIntProperty, args=(self,))
+        return self.create(StringIntProperty, args=(self, ))
 
 
 class StringFloatProperty(FloatProperty):
@@ -175,4 +175,4 @@ class StringFloatProperty(FloatProperty):
 class StringFloatItemInterface(StringItemInterface):
     @property
     def float(self) -> StringFloatProperty:
-        return self.create(StringFloatProperty, args=(self,))
+        return self.create(StringFloatProperty, args=(self, ))
