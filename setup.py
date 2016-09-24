@@ -2,7 +2,7 @@
 A Pretty Project Framework
 
 Author: SF-Zhou
-Date: 2016-08-07
+Date: 2016-09-21
 
 See:
 https://github.com/sf-zhou/pretty

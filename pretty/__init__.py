@@ -1,3 +1,5 @@
+from sender import *
+
 from .base import ValueModel, AttachAbility
 from .base import ValueInterface, ChangedInterface
 from .base import AbstractItem, Item, AbstractProperty
@@ -18,3 +20,5 @@ from .project import StringProjectItem, IntProjectItem, FloatProjectItem
 from .widget_interface import WidgetStringItem, WidgetStringInterface
 from .widget_interface import IndexItem, WidgetIndexInterface
 from .widget_interface import StringsItem, WidgetStringListInterface
+
+assert SignalSender is SignalSender

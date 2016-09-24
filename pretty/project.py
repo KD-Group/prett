@@ -32,16 +32,22 @@ class AbstractProject(ValueInterface, DictValueModel, ChangedInterface):
 
 class AbstractProjectItem(AbstractItem):
     def __init__(self, parent: AbstractProject=None):
+        self.parent = parent
         if parent is not None:
-            self.parent = parent
             self.parent.children.append(self)
             self.parent.changed.connect(self.check_change)
 
     def get_value(self):
-        return self.parent.get_property(self.name)
+        if self.parent is not None:
+            return self.parent.get_property(self.name)
+        else:
+            return self.self_storage
 
     def set_value(self, value):
-        self.parent.set_property(self.name, value)
+        if self.parent is not None:
+            self.parent.set_property(self.name, value)
+        else:
+            self.self_storage = value
 
     @property
     def name(self) -> str:
@@ -49,6 +55,14 @@ class AbstractProjectItem(AbstractItem):
 
     @name.setter
     def name(self, value):
+        self.assign(value)
+
+    @property
+    def self_storage(self):
+        return self.create(object)
+
+    @self_storage.setter
+    def self_storage(self, value):
         self.assign(value)
 
 
