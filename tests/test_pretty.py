@@ -1,4 +1,3 @@
-import sender
 import pretty
 import pickle
 import unittest
@@ -40,7 +39,7 @@ class MyTestCase(unittest.TestCase):
         p = ProjectDemo()
         times = []
 
-        @sender.connect_with(p.width.int.changed)
+        @pretty.connect_with(p.width.int.changed)
         def width_changed(value: int):
             times.append(len(times))
 

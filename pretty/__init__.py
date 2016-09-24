@@ -1,4 +1,4 @@
-from sender import *
+from .sender import SignalSender, connect_with
 
 from .base import ValueModel, AttachAbility
 from .base import ValueInterface, ChangedInterface
@@ -23,5 +23,3 @@ from .setting import StringSettingItem, IntSettingItem, FloatSettingItem
 from .widget_interface import WidgetStringItem, WidgetStringInterface
 from .widget_interface import IndexItem, WidgetIndexInterface
 from .widget_interface import StringsItem, WidgetStringListInterface
-
-assert SignalSender is SignalSender

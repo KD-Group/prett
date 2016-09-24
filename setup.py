@@ -35,5 +35,5 @@ setup(
 
     keywords='qt ui',
     packages=find_packages(exclude=['docs', 'tests']),
-    install_requires=['sender', 'typing']
+    install_requires=['PySide', 'typing']
 )

@@ -1,6 +1,6 @@
 import typing
-import sender
 import traceback
+from . import *
 
 
 class ValueModel:
@@ -55,8 +55,8 @@ class ValueInterface(ValueModel):
 
 class ChangedInterface(AttachAbility):
     @property
-    def changed(self) -> sender.SignalSender:
-        return self.create(sender.SignalSender, finished_with=self.set_changed_connection)
+    def changed(self) -> SignalSender:
+        return self.create(SignalSender, finished_with=self.set_changed_connection)
 
     def check_change(self, *_):
         if self.value != self.changed.last_value:
