@@ -59,6 +59,21 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(len(times), 3)
 
+    def test_setting_value(self):
+        class SettingItemDemo(pretty.IntSettingItem):
+            pass
+
+        class SettingDemo(pretty.AbstractSetting):
+            def __init__(self):
+                self.margin = SettingItemDemo(self, 5)
+
+        s = SettingDemo()
+        self.assertEqual(s.margin.int.value, 5)
+        self.assertEqual(s.value, {})
+
+        s.margin.int.value = 20
+        self.assertEqual(s.margin.int.value, 20)
+        self.assertEqual(s.value, {'margin': '20'})
 
 if __name__ == '__main__':
     unittest.main()

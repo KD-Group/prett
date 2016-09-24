@@ -17,6 +17,9 @@ from .multi_types import StringFloatProperty, StringFloatItemInterface
 from .project import AbstractProject, AbstractProjectItem
 from .project import StringProjectItem, IntProjectItem, FloatProjectItem
 
+from .setting import AbstractSetting, AbstractSettingItem
+from .setting import StringSettingItem, IntSettingItem, FloatSettingItem
+
 from .widget_interface import WidgetStringItem, WidgetStringInterface
 from .widget_interface import IndexItem, WidgetIndexInterface
 from .widget_interface import StringsItem, WidgetStringListInterface

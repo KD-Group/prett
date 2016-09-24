@@ -1,8 +1,33 @@
+import os
 from . import *
 import typing
+import pickle
 
 
-class AbstractProject(ValueInterface, DictValueModel, ChangedInterface):
+class SaveInterface(ValueModel):
+    def load(self):
+        if os.path.exists(self.filename):
+            with open(self.filename, 'rb') as f:
+                self.value = pickle.load(f)
+
+    def save(self):
+        with open(self.filename, 'wb') as f:
+            pickle.dump(self.value, f)
+
+    @property
+    def path(self) -> str:
+        return None
+
+    @property
+    def name(self) -> str:
+        return None
+
+    @property
+    def filename(self):
+        return os.path.join(self.path, self.name)
+
+
+class AbstractProject(DictValueModel, SaveInterface, ChangedInterface):
     def get_value(self) -> dict:
         return self.create(dict)
 
@@ -59,7 +84,7 @@ class AbstractProjectItem(AbstractItem):
 
     @property
     def self_storage(self):
-        return self.create(object)
+        return self.create(lambda: None)
 
     @self_storage.setter
     def self_storage(self, value):
