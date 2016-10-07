@@ -44,13 +44,7 @@ class AttachAbility:
 
 
 class ValueInterface(ValueModel):
-    @property
-    def value(self):
-        return self.get_value()
-
-    @value.setter
-    def value(self, value):
-        self.set_value(value)
+    pass
 
 
 class ChangedInterface(AttachAbility):
@@ -58,20 +52,13 @@ class ChangedInterface(AttachAbility):
     def changed(self) -> SignalSender:
         return self.create(SignalSender, finished_with=self.set_changed_connection)
 
+    # noinspection PyUnresolvedReferences
     def check_change(self, *_):
         if self.value != self.changed.last_value:
             self.changed.emit(self.value)
 
     def set_changed_connection(self):
         pass
-
-    @property
-    def value(self):
-        raise ValueError("NEVER RUN THIS")
-
-    @value.setter
-    def value(self, value):
-        raise ValueError("NEVER RUN THIS")
 
 
 class AbstractItem(ValueInterface, ChangedInterface):
@@ -94,14 +81,6 @@ class AbstractProperty(ValueInterface, ChangedInterface):
 
     def set_value(self, value):
         self.parent.set_value(value)
-
-    @property
-    def value(self):
-        return self.get_value()
-
-    @value.setter
-    def value(self, value):
-        self.set_value(value)
 
     def connect(self, other: 'AbstractProperty'):
         self.changed.connect(other.set_value)
