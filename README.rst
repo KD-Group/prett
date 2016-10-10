@@ -43,7 +43,7 @@ When the item is inherited from StringIntItem, the item value is stored in strin
     import pretty
 
 
-    class ItemDemo(pretty.StringIntProjectItem):
+    class ItemDemo(pretty.IntProjectItem):
         pass
 
     class ProjectDemo(pretty.AbstractProject):
