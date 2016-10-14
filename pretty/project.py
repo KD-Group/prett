@@ -26,6 +26,10 @@ class SaveInterface(ValueModel):
     def filename(self):
         return os.path.join(self.path, self.name)
 
+    @property
+    def is_existing(self):
+        return os.path.exists(self.filename)
+
 
 class AbstractProject(DictValueModel, SaveInterface, ChangedInterface):
     def get_value(self) -> dict:
