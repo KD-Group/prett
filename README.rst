@@ -1,10 +1,10 @@
-pretty: A Pretty Project Framework
+prett: A Pretty Project Framework
 ==================================
 
-.. image:: https://travis-ci.org/SF-Zhou/pretty.svg?branch=master
-    :target: https://travis-ci.org/SF-Zhou/pretty
+.. image:: https://travis-ci.org/SF-Zhou/prett.svg?branch=master
+    :target: https://travis-ci.org/SF-Zhou/prett
 
-A pretty project framework for Python3 & PySide.
+A prett project framework for Python3 & PySide.
 
 I hope it is useful for you, too. :D
 
@@ -17,13 +17,13 @@ Generally this dict can be serialized and stored in the file if the dict can be 
 
 .. code-block:: python
 
-    import pretty
+    import prett
 
 
-    class ItemDemo(pretty.IntProjectItem):
+    class ItemDemo(prett.IntProjectItem):
         pass
 
-    class ProjectDemo(pretty.AbstractProject):
+    class ProjectDemo(prett.AbstractProject):
         def __init__(self):
             self.width = ItemDemo(self)
             self.height = ItemDemo(self)
@@ -38,18 +38,18 @@ Generally this dict can be serialized and stored in the file if the dict can be 
 Type Conversion
 ===============
 
-In pretty, there are default type conversion in string-int and string-float.
+In prett, there are default type conversion in string-int and string-float.
 When the item is inherited from StringIntItem, the item value is stored in string type, and its int property will automatically convert to or from string type.
 
 .. code-block:: python
 
-    import pretty
+    import prett
 
 
-    class ItemDemo(pretty.IntProjectItem):
+    class ItemDemo(prett.IntProjectItem):
         pass
 
-    class ProjectDemo(pretty.AbstractProject):
+    class ProjectDemo(prett.AbstractProject):
         def __init__(self):
             self.length = ItemDemo(self)
 
@@ -65,13 +65,13 @@ When the value of property change, the changed signals of project, item, and pro
 
 .. code-block:: python
 
-    import pretty
+    import prett
 
 
-    class ItemDemo(pretty.IntProjectItem):
+    class ItemDemo(prett.IntProjectItem):
         pass
 
-    class ProjectDemo(pretty.AbstractProject):
+    class ProjectDemo(prett.AbstractProject):
         def __init__(self):
             self.width = ItemDemo(self)
             self.height = ItemDemo(self)

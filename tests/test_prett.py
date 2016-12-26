@@ -1,14 +1,14 @@
-import pretty
+import prett
 import pickle
 import unittest
 
 
 class MyTestCase(unittest.TestCase):
     def test_project_storage_tree(self):
-        class ItemDemo(pretty.IntProjectItem):
+        class ItemDemo(prett.IntProjectItem):
             pass
 
-        class ProjectDemo(pretty.AbstractProject):
+        class ProjectDemo(prett.AbstractProject):
             def __init__(self):
                 self.width = ItemDemo(self)
                 self.height = ItemDemo(self)
@@ -28,10 +28,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(p.height.string.value, '20')
 
     def test_value_changed(self):
-        class ItemDemo(pretty.IntProjectItem):
+        class ItemDemo(prett.IntProjectItem):
             pass
 
-        class ProjectDemo(pretty.AbstractProject):
+        class ProjectDemo(prett.AbstractProject):
             def __init__(self):
                 self.width = ItemDemo(self)
                 self.height = ItemDemo(self)
@@ -39,7 +39,7 @@ class MyTestCase(unittest.TestCase):
         p = ProjectDemo()
         times = []
 
-        @pretty.connect_with(p.width.int.changed)
+        @prett.connect_with(p.width.int.changed)
         def width_changed(value: int):
             times.append(len(times))
 
@@ -59,10 +59,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(len(times), 3)
 
     def test_setting_value(self):
-        class SettingItemDemo(pretty.IntSettingItem):
+        class SettingItemDemo(prett.IntSettingItem):
             pass
 
-        class SettingDemo(pretty.AbstractSetting):
+        class SettingDemo(prett.AbstractSetting):
             def __init__(self):
                 self.margin = SettingItemDemo(self, 5)
 
