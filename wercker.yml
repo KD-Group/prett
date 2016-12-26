@@ -1,7 +1,6 @@
 box: python:3.4-slim
 build:
     steps:
-        - pip-install
         - script:
             name: echo python information
             code: |
