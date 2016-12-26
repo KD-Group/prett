@@ -1,6 +1,9 @@
 pretty: A Pretty Project Framework
 ==================================
 
+.. image:: https://travis-ci.org/SF-Zhou/pretty.svg?branch=master
+    :target: https://travis-ci.org/SF-Zhou/pretty
+
 A pretty project framework for Python3 & PySide.
 
 I hope it is useful for you, too. :D
