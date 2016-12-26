@@ -2,6 +2,7 @@ language: python
 python:
     - "3.4"
 install:
-    - pip install PySide typing
+    - apt-get install python3-pyside
+    - pip install typing
 script:
     - python -m pytest
