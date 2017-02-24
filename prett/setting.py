@@ -24,6 +24,10 @@ class StringSettingItem(AbstractSettingItem, StringItemInterface):
     pass
 
 
+class StringListSettingItem(AbstractSettingItem, StringListItemInterface):
+    pass
+
+
 class IntSettingItem(AbstractSettingItem, StringIntItemInterface):
     pass
 

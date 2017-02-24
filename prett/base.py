@@ -57,6 +57,9 @@ class ChangedInterface(AttachAbility):
         if self.value != self.changed.last_value:
             self.changed.emit(self.value)
 
+    def emit_changed(self):
+        self.changed.emit(self.value)
+
     def set_changed_connection(self):
         pass
 
