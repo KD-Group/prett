@@ -19,7 +19,7 @@ class ValueModel:
         pass
 
 
-class AttachAbility:
+class AttachAbility(ValueModel):
     AttachFlag = '_attach_{}'
 
     def create(self, creator, args: tuple=(),

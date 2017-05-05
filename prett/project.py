@@ -15,11 +15,11 @@ class SaveInterface(ValueModel):
             pickle.dump(self.value, f)
 
     @property
-    def path(self) -> str:
+    def path(self) -> typing.Optional[str]:
         return None
 
     @property
-    def name(self) -> str:
+    def name(self) -> typing.Optional[str]:
         return None
 
     @property
@@ -59,7 +59,7 @@ class AbstractProject(DictValueModel, SaveInterface, ChangedInterface):
         super().__setattr__(key, value)
 
 
-class AbstractProjectItem(AbstractItem):
+class AbstractProjectItem(StringItemInterface):
     def __init__(self, parent: AbstractProject=None):
         self.parent = parent
         if parent is not None:
@@ -95,7 +95,7 @@ class AbstractProjectItem(AbstractItem):
         self.assign(value)
 
 
-class StringProjectItem(AbstractProjectItem, StringItemInterface):
+class StringProjectItem(AbstractProjectItem):
     pass
 
 
