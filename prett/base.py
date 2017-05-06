@@ -18,6 +18,9 @@ class ValueModel:
     def set_value(self, value):
         pass
 
+    def get_string(self) -> typing.Optional[str]:
+        return self.get_value()
+
 
 class AttachAbility(ValueModel):
     AttachFlag = '_attach_{}'
