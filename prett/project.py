@@ -1,4 +1,5 @@
 import os
+import time
 from . import *
 import typing
 import pickle
@@ -105,3 +106,13 @@ class IntProjectItem(AbstractProjectItem, StringIntItemInterface):
 
 class FloatProjectItem(AbstractProjectItem, StringFloatItemInterface):
     pass
+
+
+class TimePointItem(StringProjectItem):
+    class TimePointProperty(StringProperty):
+        def update(self):
+            self.value = time.strftime("%y-%m-%d %H:%M:%S")
+
+    @property
+    def time(self) -> TimePointProperty:
+        return self.create(TimePointItem.TimePointProperty, args=(self, ))

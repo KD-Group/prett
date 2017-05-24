@@ -16,6 +16,7 @@ from .multi_types import StringFloatProperty, StringFloatItemInterface
 
 from .project import AbstractProject, AbstractProjectItem
 from .project import StringProjectItem, IntProjectItem, FloatProjectItem
+from .project import TimePointItem
 
 from .setting import AbstractSetting, AbstractSettingItem
 from .setting import StringSettingItem, StringListSettingItem, IntSettingItem, FloatSettingItem
