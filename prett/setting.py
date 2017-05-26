@@ -10,7 +10,10 @@ class AbstractSettingItem(AbstractProjectItem):
         super().__init__(parent)
 
         if default_value is not None:
-            self.self_storage = str(default_value)
+            if isinstance(default_value, list):
+                self.self_storage = default_value
+            else:
+                self.self_storage = str(default_value)
 
     def get_value(self):
         if self.parent is not None:
