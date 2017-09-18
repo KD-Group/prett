@@ -1,19 +1,20 @@
 import os
 import time
+import json
+import codecs
 from . import *
 import typing
-import pickle
 
 
 class SaveInterface(ValueModel):
     def load(self):
         if os.path.exists(self.filename):
-            with open(self.filename, 'rb') as f:
-                self.value = pickle.load(f)
+            with codecs.open(self.filename, 'r', encoding='utf-8') as f:
+                self.value = json.load(f)
 
     def save(self):
-        with open(self.filename, 'wb') as f:
-            pickle.dump(self.value, f)
+        with open(self.filename, 'w', encoding='utf-8') as f:
+            json.dump(self.value, f, indent=2)
 
     @property
     def path(self) -> typing.Optional[str]:

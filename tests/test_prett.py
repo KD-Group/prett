@@ -1,5 +1,5 @@
+import json
 import prett
-import pickle
 import unittest
 
 
@@ -17,13 +17,13 @@ class MyTestCase(unittest.TestCase):
         p.width.int.value = 16
         p.height.int.value = 20
         self.assertEqual(p.value, {'width': '16', 'height': '20'})
-        pickled_p = pickle.dumps(p.value)
+        pickled_p = json.dumps(p.value)
 
         p.value = {'height': 17}
         self.assertEqual(p.height.int.value, 17)
         self.assertEqual(p.width.value, None)
 
-        p.value = pickle.loads(pickled_p)
+        p.value = json.loads(pickled_p)
         self.assertEqual(p.width.string.value, '16')
         self.assertEqual(p.height.string.value, '20')
 
