@@ -13,7 +13,7 @@ class SaveInterface(ValueModel):
                 self.value = json.load(f)
 
     def save(self):
-        with open(self.filename, 'w', encoding='utf-8') as f:
+        with codecs.open(self.filename, 'w', encoding='utf-8') as f:
             json.dump(self.value, f, indent=2)
 
     @property
