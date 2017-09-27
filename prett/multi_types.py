@@ -33,7 +33,7 @@ class IntValueModel(ValueModel):
 
     @value.setter
     def value(self, value):
-        self.set_value(value)
+        self.set_value(int(value))
 
 
 class IntProperty(AbstractProperty, IntValueModel):
@@ -57,7 +57,7 @@ class FloatValueModel(ValueModel):
 
     @value.setter
     def value(self, value):
-        self.set_value(value)
+        self.set_value(float(value))
 
 
 class FloatProperty(AbstractProperty, FloatValueModel):
