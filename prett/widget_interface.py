@@ -58,3 +58,37 @@ class WidgetStringListInterface(AttachAbility):
     @property
     def string_list(self) -> StringListProperty:
         return self.strings_item.string_list
+
+
+class DictListItem(DictListItem):
+    pass
+
+
+class WidgetDictListInterface(AttachAbility):
+    class DictListItem(DictListItem):
+        pass
+
+    @property
+    def dict_list_item(self) -> DictListItem:
+        return self.create(type(self).DictListItem, args=(self, ))
+
+    @property
+    def dict_list(self) -> DictListProperty:
+        return self.dict_list_item.dict_list
+
+
+class WidgetDictItem(DictItem):
+    pass
+
+
+class WidgetDictInterface(AttachAbility):
+    class DictItem(DictItem):
+        pass
+
+    @property
+    def dict_item(self) -> DictItem:
+        return self.create(type(self).DictItem, args=(self, ))
+
+    @property
+    def dict(self) -> DictProperty:
+        return self.dict_item.dict

@@ -98,6 +98,34 @@ class DictItem(DictItemInterface):
     pass
 
 
+class DictListValueModel(ValueModel):
+    @property
+    def value(self) -> typing.List[dict]:
+        return self.get_value()
+
+    @value.setter
+    def value(self, value):
+        self.set_value(value)
+
+    @property
+    def count(self):
+        return len(self.value)
+
+
+class DictListProperty(AbstractProperty, DictListValueModel):
+    pass
+
+
+class DictListItemInterface(AbstractItem):
+    @property
+    def dict_list(self) -> DictListProperty:
+        return self.create(DictListProperty, args=(self, ))
+
+
+class DictListItem(DictListItemInterface):
+    pass
+
+
 class ListValueModel(ValueModel):
     @property
     def value(self) -> list:
