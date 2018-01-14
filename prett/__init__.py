@@ -10,6 +10,7 @@ from .multi_types import FloatValueModel, FloatProperty, FloatItemInterface, Flo
 from .multi_types import DictValueModel, DictProperty, DictItemInterface, DictItem
 from .multi_types import ListValueModel, ListProperty, ListItemInterface, ListItem
 from .multi_types import StringListValueModel, StringListProperty, StringListItemInterface, StringListItem
+from .multi_types import DictListValueModel, DictListProperty, DictListItemInterface, DictListItem
 
 from .multi_types import StringIntProperty, StringIntItemInterface
 from .multi_types import StringFloatProperty, StringFloatItemInterface
@@ -24,3 +25,5 @@ from .setting import StringSettingItem, StringListSettingItem, IntSettingItem, F
 from .widget_interface import WidgetStringItem, WidgetStringInterface
 from .widget_interface import IndexItem, WidgetIndexInterface
 from .widget_interface import StringsItem, WidgetStringListInterface
+from .widget_interface import WidgetDictItem, WidgetDictInterface
+from .widget_interface import DictListItem, WidgetDictListInterface
