@@ -74,5 +74,6 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(s.margin.int.value, 20)
         self.assertEqual(s.value, {'margin': '20'})
 
+
 if __name__ == '__main__':
     unittest.main()
