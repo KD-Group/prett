@@ -89,6 +89,7 @@ class AbstractProjectItem(StringItemInterface):
             self.parent.set_property(self.name, value)
         else:
             self.self_storage = value
+            self.check_change()
 
     @property
     def name(self) -> str:
