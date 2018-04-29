@@ -26,4 +26,4 @@ from .widget_interface import WidgetStringItem, WidgetStringInterface
 from .widget_interface import IndexItem, WidgetIndexInterface
 from .widget_interface import StringsItem, WidgetStringListInterface
 from .widget_interface import WidgetDictItem, WidgetDictInterface
-from .widget_interface import DictListItem, WidgetDictListInterface
+from .widget_interface import WidgetDictListInterface

@@ -1,5 +1,7 @@
-from . import *
 import typing
+from . import ValueModel
+from . import AbstractItem
+from . import AbstractProperty
 
 
 class StringValueModel(ValueModel):

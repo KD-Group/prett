@@ -2,8 +2,14 @@ import os
 import time
 import json
 import codecs
-from . import *
 import typing
+from . import ValueModel
+from . import DictValueModel
+from . import ChangedInterface
+from . import StringProperty
+from . import StringItemInterface
+from . import StringIntItemInterface
+from . import StringFloatItemInterface
 
 
 class SaveInterface(ValueModel):
@@ -123,7 +129,7 @@ class FloatProjectItem(AbstractProjectItem, StringFloatItemInterface):
 class TimePointItem(StringProjectItem):
     class TimePointProperty(StringProperty):
         def update(self):
-            self.value = time.strftime("%y-%m-%d %H:%M:%S")
+            self.value = time.strftime('%y-%m-%d %H:%M:%S')
 
     @property
     def time(self) -> TimePointProperty:

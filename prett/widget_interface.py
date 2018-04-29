@@ -1,4 +1,23 @@
-from . import *
+from . import AttachAbility
+
+from . import StringItem
+from . import StringIntItemInterface
+from . import StringFloatItemInterface
+
+from . import StringProperty
+from . import StringIntProperty
+from . import StringFloatProperty
+
+from . import IntItem
+from . import IntProperty
+
+from . import StringListItem
+from . import StringListProperty
+
+from . import DictItem
+from . import DictProperty
+from . import DictListItem
+from . import DictListProperty
 
 
 class WidgetStringItem(StringItem, StringIntItemInterface, StringFloatItemInterface):
@@ -58,10 +77,6 @@ class WidgetStringListInterface(AttachAbility):
     @property
     def string_list(self) -> StringListProperty:
         return self.strings_item.string_list
-
-
-class DictListItem(DictListItem):
-    pass
 
 
 class WidgetDictListInterface(AttachAbility):
