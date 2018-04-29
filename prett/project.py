@@ -72,7 +72,7 @@ class AbstractProject(DictValueModel, SaveInterface, ChangedInterface):
 
 
 class AbstractProjectItem(StringItemInterface):
-    def __init__(self, parent: AbstractProject=None):
+    def __init__(self, parent: AbstractProject = None):
         self.parent = parent
         if parent is not None:
             self.parent.children.append(self)

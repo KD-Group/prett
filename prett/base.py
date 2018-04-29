@@ -25,8 +25,8 @@ class ValueModel:
 class AttachAbility(ValueModel):
     AttachFlag = '_attach_{}'
 
-    def create(self, creator, args: tuple=(),
-               finished_with: typing.Callable[[], object]=None):
+    def create(self, creator, args: tuple = (),
+               finished_with: typing.Callable[[], object] = None):
         name = self.AttachFlag.format(self.current_name)
 
         obj = getattr(self, name, None)
