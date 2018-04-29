@@ -19,7 +19,6 @@ deploy:
     user: sfzhou
     on:
         tags: true
-        branch: master
     password:
         secure: X6KLyj7lC88c/wzWiCYH3Ic4aBWEE/LQjrfjQadNDCsoItDxplKfSR4U87aHgJM7ZLqLSi766Vjx9Mv4wzD0i3raOHOA+W6kLHk/0Ae9INHIGEOycMAazt/GCAFd8FZQeYrWNBnkrN9y5BpPX9oHV96y+W2sbIAokdR9EI8er0TDWMab18+82OeAPJs3M6XuAKKCjvkL3Vwc/p7r8IwaCIuxz+BF3L8YtIO+C+gLjBPcmsyFtKcXe/lW1LL8FLNpXPa7t3+Wtcg716ErjadkwvDHsX4HDMwxOaxJFnBurqZIr/ZZMoDNh40mDpGOsmLJ90gEJU2b+qrWSXUcDZEV1LyACTQpIuwvoQxJ0mIT/+mAOF/uJe4zqz/bt/Ak2whPsJRjhaVOJ28yP+JkIXhtIGlkNnCBInzTTt93lkIAhFxd+uvtXVbsoJDCXt7EZVe/N21ZEeU+59E5Gi6yLQ1gx1t+Ju83jAsInSILEaz8z3Rs+wrdrdpHhDn4e+8HgHPPZ6USgHY4VQvlB+lnW2uPPY/YcnwYZ5FCOH2GXRHrk5Ena0M5/Db3j2+bwtxQtqaxTW77H7MjY/SyEPu1TNZ4NSZuiYcdhgQiw1WvwVZ09cAm+Wk53i4xXEx60fCw6eA8x/3+SpRQlTZ0mD7c1oHARQzE6foH4fn9bdR8dyuGFoc=
 
