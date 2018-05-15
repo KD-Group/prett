@@ -23,6 +23,8 @@ class SignalSender:
             raise self.last_error[0]
 
     def connect(self, func, *args, **kwargs):
+        last_error = self.last_error
+
         def slot_func(data, *_):
             try:
 
@@ -34,7 +36,7 @@ class SignalSender:
 
                 return func(*(args + data[0]), **k)
             except BaseException as e:
-                self.last_error.append(e)
+                last_error.append(e)
         slot_func.__name__ = getattr(func, '__name__', '<Lambda>')
 
         self.signal.signal.connect(slot_func)
