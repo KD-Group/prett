@@ -37,9 +37,15 @@ class SignalSender:
                 return func(*(args + data[0]), **k)
             except BaseException as e:
                 last_error.append(e)
+
         slot_func.__name__ = getattr(func, '__name__', '<Lambda>')
 
         self.signal.signal.connect(slot_func)
+
+    def emit_if_changed(self, *args, **kwargs):
+        emit_value = (args, kwargs)
+        if self.last_emit != emit_value:
+            self.emit(*args, **kwargs)
 
     @property
     def has_emitted(self):
@@ -67,4 +73,5 @@ def connect_with(signal: SignalSender, *args, **kwargs):
     def pack_func(func):
         signal.connect(func, *args, **kwargs)
         return func
+
     return pack_func
