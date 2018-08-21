@@ -18,9 +18,10 @@ from .multi_types import StringFloatProperty, StringFloatItemInterface
 from .project import AbstractProject, AbstractProjectItem
 from .project import StringProjectItem, IntProjectItem, FloatProjectItem
 from .project import TimePointItem
+from .project import Enum,EnumValueModel,EnumItem
 
 from .setting import AbstractSetting, AbstractSettingItem
-from .setting import StringSettingItem, StringListSettingItem, IntSettingItem, FloatSettingItem
+from .setting import StringSettingItem, StringListSettingItem, IntSettingItem, FloatSettingItem, DictSettingItem
 
 from .widget_interface import WidgetStringItem, WidgetStringInterface
 from .widget_interface import IndexItem, WidgetIndexInterface
