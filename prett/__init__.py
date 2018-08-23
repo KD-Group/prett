@@ -16,7 +16,7 @@ from .multi_types import StringIntProperty, StringIntItemInterface
 from .multi_types import StringFloatProperty, StringFloatItemInterface
 
 from .project import AbstractProject, AbstractProjectItem
-from .project import StringProjectItem, IntProjectItem, FloatProjectItem
+from .project import StringProjectItem, IntProjectItem, FloatProjectItem,DictProjectItem
 from .project import TimePointItem
 from .project import Enum,EnumValueModel,EnumItem
 

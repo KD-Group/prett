@@ -80,6 +80,8 @@ class FloatItem(FloatItemInterface):
 class DictValueModel(ValueModel):
     @property
     def value(self) -> dict:
+        if self.get_value() == None:
+            return {}
         if isinstance(self.get_value(), dict):
             return self.get_value()
         else:

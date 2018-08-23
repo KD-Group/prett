@@ -14,7 +14,7 @@ from . import StringIntItemInterface
 from . import StringItemInterface
 from . import StringProperty
 from . import ValueModel
-
+from . import DictItemInterface
 
 class SaveInterface(ValueModel):
     def load(self, check_key: str, check_value: str):
@@ -117,6 +117,8 @@ class AbstractProjectItem(StringItemInterface):
     def self_storage(self, value):
         self.assign(value)
 
+class DictProjectItem(AbstractProjectItem,DictItemInterface):
+    pass
 
 class StringProjectItem(AbstractProjectItem):
     pass
