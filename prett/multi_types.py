@@ -202,6 +202,8 @@ class StringIntItemInterface(StringItemInterface):
 
 class StringFloatProperty(FloatProperty):
     def get_value(self):
+        if self.parent.get_value() == '':
+            return None
         return float(self.parent.get_value())
 
     def set_value(self, value):
