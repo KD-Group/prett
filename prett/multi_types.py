@@ -80,7 +80,7 @@ class FloatItem(FloatItemInterface):
 class DictValueModel(ValueModel):
     @property
     def value(self) -> dict:
-        if self.get_value() == None:
+        if self.get_value() is None:
             return {}
         if isinstance(self.get_value(), dict):
             return self.get_value()
@@ -93,10 +93,32 @@ class DictValueModel(ValueModel):
 
 
 class DictProperty(AbstractProperty, DictValueModel):
-    pass
+
+    def __setitem__(self, key, value):
+        self.value.__setitem__(key, value)
+        self.parent.emit_changed()
+        self.emit_changed()
+
+    def __getitem__(self, item):
+        return self.value.__getitem__(item)
+
+    def __getattr__(self, attr_name):
+        if not self.__dict__.__contains__(attr_name) and attr_name in dir(self.value):
+            def wrapper(*args, **kwargs):
+                previous_value = self.value.copy()
+                return_value = getattr(self.value, attr_name)(*args, **kwargs)
+                if previous_value != self.value:
+                    # print(self)
+                    self.parent.emit_changed()
+                    self.emit_changed()
+                return return_value
+
+            return wrapper
+        return self.__getattribute__(attr_name)
 
 
 class DictItemInterface(AbstractItem):
+
     @property
     def dict(self) -> DictProperty:
         return self.create(DictProperty, args=(self,))
@@ -137,6 +159,10 @@ class DictListItem(DictListItemInterface):
 class ListValueModel(ValueModel):
     @property
     def value(self) -> list:
+        if self.get_value() == '' or self.get_value() is None:
+            return []
+        if isinstance(self.get_value(), str):
+            return eval(self.get_value())
         return self.get_value()
 
     @value.setter
@@ -145,10 +171,32 @@ class ListValueModel(ValueModel):
 
 
 class ListProperty(AbstractProperty, ListValueModel):
+    def __setitem__(self, key, value):
+        self.value.__setitem__(key, value)
+        self.parent.emit_changed()
+        self.emit_changed()
+
+    def __getitem__(self, item):
+        return self.value.__getitem__(item)
+
+    def __getattr__(self, attr_name):
+        if not self.__dict__.__contains__(attr_name) and attr_name in dir(self.value):
+            def wrapper(*args, **kwargs):
+                previous_value = self.value.copy()
+                return_value = getattr(self.value, attr_name)(*args, **kwargs)
+                if previous_value != self.value:
+                    self.parent.emit_changed()
+                    self.emit_changed()
+                return return_value
+
+            return wrapper
+        return self.__getattribute__(attr_name)
+
     pass
 
 
 class ListItemInterface(AbstractItem):
+
     @property
     def list(self) -> ListProperty:
         return self.create(ListProperty, args=(self,))

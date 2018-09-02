@@ -8,13 +8,15 @@ import typing
 
 from . import AbstractProperty
 from . import ChangedInterface
+from . import DictItemInterface
 from . import DictValueModel
+from . import ListItemInterface
 from . import StringFloatItemInterface
 from . import StringIntItemInterface
 from . import StringItemInterface
 from . import StringProperty
 from . import ValueModel
-from . import DictItemInterface
+
 
 class SaveInterface(ValueModel):
     def load(self, check_key: str, check_value: str):
@@ -117,8 +119,14 @@ class AbstractProjectItem(StringItemInterface):
     def self_storage(self, value):
         self.assign(value)
 
-class DictProjectItem(AbstractProjectItem,DictItemInterface):
+
+class DictProjectItem(AbstractProjectItem, DictItemInterface):
     pass
+
+
+class ListProjectItem(AbstractProjectItem, ListItemInterface):
+    pass
+
 
 class StringProjectItem(AbstractProjectItem):
     pass
