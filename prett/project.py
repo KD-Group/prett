@@ -3,7 +3,6 @@ import enum
 import json
 import os
 import time
-
 import typing
 
 from . import AbstractProperty
@@ -155,7 +154,7 @@ class TimePointItem(StringProjectItem):
             self.value = time.strftime(self.t_format)
 
     @property
-    def time(self) -> TimePointProperty:
+    def time(self):
         return self.create(TimePointItem.TimePointProperty, args=(self, self.t_format))
 
 
@@ -207,5 +206,5 @@ class EnumItem(AbstractProjectItem, StringItemInterface):
             self.parent.set_value(value.value)
 
     @property
-    def type(self) -> EnumProperty:
+    def type(self):
         return self.create(self.EnumProperty, args=(self, self.enum))
