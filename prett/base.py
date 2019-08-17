@@ -1,6 +1,8 @@
-import typing
 import traceback
-from . import SignalSender
+
+import typing
+
+from .sender import SignalSender
 
 
 class ValueModel:

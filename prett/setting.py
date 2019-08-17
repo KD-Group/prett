@@ -1,9 +1,10 @@
 from . import AbstractProject
 from . import AbstractProjectItem
-from . import StringItemInterface
-from . import StringIntItemInterface
-from . import StringListItemInterface
+from . import DictItemInterface
 from . import StringFloatItemInterface
+from . import StringIntItemInterface
+from . import StringItemInterface
+from . import StringListItemInterface
 
 
 class AbstractSetting(AbstractProject):
@@ -41,4 +42,8 @@ class IntSettingItem(AbstractSettingItem, StringIntItemInterface):
 
 
 class FloatSettingItem(AbstractSettingItem, StringFloatItemInterface):
+    pass
+
+
+class DictSettingItem(AbstractSettingItem, DictItemInterface):
     pass

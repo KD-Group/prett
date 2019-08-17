@@ -1,12 +1,15 @@
 import codecs
+import enum
 import json
 import os
 import time
-
 import typing
 
+from . import AbstractProperty
 from . import ChangedInterface
+from . import DictItemInterface
 from . import DictValueModel
+from . import ListItemInterface
 from . import StringFloatItemInterface
 from . import StringIntItemInterface
 from . import StringItemInterface
@@ -116,6 +119,14 @@ class AbstractProjectItem(StringItemInterface):
         self.assign(value)
 
 
+class DictProjectItem(AbstractProjectItem, DictItemInterface):
+    pass
+
+
+class ListProjectItem(AbstractProjectItem, ListItemInterface):
+    pass
+
+
 class StringProjectItem(AbstractProjectItem):
     pass
 
@@ -143,5 +154,57 @@ class TimePointItem(StringProjectItem):
             self.value = time.strftime(self.t_format)
 
     @property
-    def time(self) -> TimePointProperty:
+    def time(self):
         return self.create(TimePointItem.TimePointProperty, args=(self, self.t_format))
+
+
+class Enum(enum.Enum):
+    @classmethod
+    def get_values_list(cls) -> []:
+        res = []
+        for s in cls:
+            res.append(s.value)
+        return res
+
+    @classmethod
+    def get_key_by_value(cls, value: str, default_value=None):
+        for s in cls:
+            if s.value == value:
+                return s
+        else:
+            return default_value
+
+    def __eq__(self, s: str):
+        return self.name == s
+
+
+class EnumValueModel(ValueModel):
+    @property
+    def value(self):
+        return self.get_value()
+
+    @value.setter
+    def value(self, value):
+        self.set_value(value)
+
+
+class EnumItem(AbstractProjectItem, StringItemInterface):
+    def __init__(self, parent, e=None):
+        super().__init__(parent)
+        self.enum = e
+
+    class EnumProperty(AbstractProperty, EnumValueModel):
+        def __init__(self, parent, e: Enum):
+            super().__init__(parent)
+            self.enum = e
+
+        def get_value(self):
+            text = self.parent.get_string()
+            return self.enum.get_key_by_value(text)
+
+        def set_value(self, value: Enum):
+            self.parent.set_value(value.value)
+
+    @property
+    def type(self):
+        return self.create(self.EnumProperty, args=(self, self.enum))
