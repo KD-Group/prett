@@ -12,7 +12,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='prett',
-    version='0.1.0',
+    version='0.1.1',
     description='A Pretty Project Framework',
 
     url='https://github.com/sf-zhou/prett',
