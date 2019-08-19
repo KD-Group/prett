@@ -1,26 +1,21 @@
 language: python
-
 python:
-    - "3.4"
-
-install: 
-    - sudo apt-get install libqt4-dev
-    - pip install PySide --no-index --find-links https://parkin.github.io/python-wheelhouse/;
-    - python ~/virtualenv/python${TRAVIS_PYTHON_VERSION}/bin/pyside_postinstall.py -install
-    - pip install -r requirements.txt
-    - pip install flake8 pytest
-
+- '3.4'
+install:
+- sudo apt-get install libqt4-dev
+- pip install PySide --no-index --find-links https://parkin.github.io/python-wheelhouse/;
+- python ~/virtualenv/python${TRAVIS_PYTHON_VERSION}/bin/pyside_postinstall.py -install
+- pip install -r requirements.txt
+- pip install flake8 pytest
 script:
-    - flake8 .
-    - python -m pytest
-
+- flake8 .
+- python -m pytest
 deploy:
-    provider: pypi
-    user: sfzhou
-    on:
-        tags: true
-    password:
-        secure: X6KLyj7lC88c/wzWiCYH3Ic4aBWEE/LQjrfjQadNDCsoItDxplKfSR4U87aHgJM7ZLqLSi766Vjx9Mv4wzD0i3raOHOA+W6kLHk/0Ae9INHIGEOycMAazt/GCAFd8FZQeYrWNBnkrN9y5BpPX9oHV96y+W2sbIAokdR9EI8er0TDWMab18+82OeAPJs3M6XuAKKCjvkL3Vwc/p7r8IwaCIuxz+BF3L8YtIO+C+gLjBPcmsyFtKcXe/lW1LL8FLNpXPa7t3+Wtcg716ErjadkwvDHsX4HDMwxOaxJFnBurqZIr/ZZMoDNh40mDpGOsmLJ90gEJU2b+qrWSXUcDZEV1LyACTQpIuwvoQxJ0mIT/+mAOF/uJe4zqz/bt/Ak2whPsJRjhaVOJ28yP+JkIXhtIGlkNnCBInzTTt93lkIAhFxd+uvtXVbsoJDCXt7EZVe/N21ZEeU+59E5Gi6yLQ1gx1t+Ju83jAsInSILEaz8z3Rs+wrdrdpHhDn4e+8HgHPPZ6USgHY4VQvlB+lnW2uPPY/YcnwYZ5FCOH2GXRHrk5Ena0M5/Db3j2+bwtxQtqaxTW77H7MjY/SyEPu1TNZ4NSZuiYcdhgQiw1WvwVZ09cAm+Wk53i4xXEx60fCw6eA8x/3+SpRQlTZ0mD7c1oHARQzE6foH4fn9bdR8dyuGFoc=
-
+  provider: pypi
+  user: Jefung
+  on:
+    tags: true
+  password:
+    secure: VObCjJxTMesP1A6qTzagle5yu0fqOC77ZWBR3Vl1C5xxofCRNzYDchQ+MYumhKfcbywozwM3OxnJn3z67tkCEyeB/+ANqnoOAeUOpTX4AQDtuEXwP5HnirIpfNfGcdiPjAkOByS5aJWaS2GtApQXrX3kC/Fj5g2g96RUQUgp7JqD04cbTriKSwzGTL8wvbHwzfWpW78ai5ZlGZscSCv3re8xEeaBMah351TeYdm88GeqZbQ9+lrUkn44bNG7Yk9SvfnBguzpNhI0AKHjS5E37vKtnN63gAaRrDGSB1Kk8p1DAjWaSSz+Z32Q0QgwIS0scHXIYJKdXip49bAJgKyj5Gu7umJ6gBKSDyB1AuALA4uYE85f2aR1aXCfC8DRNd5WHodr9rzcgKxikCr7412X0wqfKjnmJSxdHA8KzYCmmIONu2Mibnbf/oz2IHAFXh5y2kw6elTVJAKzANLxNMhV2ZyoYEQmzWaVoeLruh6TXb4S3WOQERmxRjnqkcBxLhcd2LATGjZj/qjcOkKphk7+Beu1gXaBYQ5B3DUlPWw6Z5pYb4ISVvUwdhcgftGdDrnbrMi0a14jmRKewPSjVeZB7zB2BKEwEEdXiyVBEjus303u9yYGN8ZZHtVmGwi/Hey6I7u4e+DszOnxsUx/Kz29krNwITaFHCCBw5gKRl3TuDc=
 notifications:
-    email: false
+  email: false
