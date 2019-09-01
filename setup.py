@@ -55,5 +55,6 @@ setup(
 
     keywords='qt ui',
     packages=find_packages(exclude=['docs', 'tests']),
+    include_package_data=True,
     install_requires=req_list,
 )
